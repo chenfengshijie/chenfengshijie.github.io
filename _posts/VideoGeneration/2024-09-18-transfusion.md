@@ -1,3 +1,12 @@
+---
+title: Transfusion: Predict the Next Token and Diffuse Images with One Multi-Modal Model(2024,8)
+author: Chen Feng
+date: 2024-09-18
+category: [Paper, VideoGeneration]
+layout: post
+---
+
+
 # Transfusion: Predict the Next Token and Diffuse Images with One Multi-Modal Model(2024,8)
 
 

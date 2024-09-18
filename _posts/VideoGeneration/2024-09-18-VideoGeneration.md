@@ -1,3 +1,12 @@
+---
+title: Stable Video Diffusion: Scaling Latent Video Diffusion Models to Large Datasets
+author: Chen Feng
+date: 2024-09-18
+category: [Paper, VideoGeneration]
+layout: post
+---
+
+
 
 # Stable Video Diffusion: Scaling Latent Video Diffusion Models to Large Datasets
 

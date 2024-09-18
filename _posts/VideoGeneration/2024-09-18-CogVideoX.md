@@ -1,3 +1,11 @@
+---
+title: CogVideoX: Text-to-Video Diffusion Models with An Expert Transformer
+author: Chen Feng
+date: 2024-09-18
+category: [Paper, VideoGeneration]
+layout: post
+---
+
 # CogVideoX: Text-to-Video Diffusion Models with An Expert Transformer[2024,8,14]
 
 [Diffusers](https://github.com/huggingface/diffusers/blob/0c1e63bd11a5746db8933111a962854fa9b36582/src/diffusers/pipelines/cogvideo/pipeline_cogvideox.py)
