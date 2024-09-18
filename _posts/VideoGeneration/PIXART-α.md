@@ -1,0 +1,26 @@
+# PIXART-α: FAST TRAINING OF DIFFUSION TRANSFORMER FOR PHOTOREALISTIC TEXT-TO-IMAGE
+
+![PIXART-α_2024-07-18_](https://s2.loli.net/2024/07/18/c2GyHa9AvVniuRD.png)
+
+主要聚焦于使用较少的训练时间和算力达到相同的模型性能。
+
+![PIXART-α_2024-07-18_](https://s2.loli.net/2024/07/18/N7aHRogTZvwzCE5.png)
+
+将模型的训练解藕为三个不同的阶段： 
+1. 捕获像素之间的依赖关系，形成视觉特征。通过先训练一个class2Image的模型来学习自然图像的像素分布，这有助于初始化T2I模型，并显著降低学习成本。在训练模型发现，一个Class2Image的模型在ImageNet上是非常好训练的，并且在输出话时候能够邮箱增强T2I的训练速度。
+2. 文本-图像的特征对其。通过Llava来进行图像的caption标注，因为Laion的数据集的caption质量低，同时引入SAM数据集来增强数据集的多样性。因此Laion数据集通常都是一个购物网站的物品图像。
+3. 美学质量。使用高质量的美学数据进行微调，以生成高分辨率的图像。
+
+模型修改：
+1. 通过在DiT中额外引入一个T5的crossAttn，增强文本信息。
+2. AdaLN-Single，在AdaLn上只注入Time-step信息，从而减少了模型参数(27%).
+
+本文更多的是在数据集上使用了Llava来进行标注，同时使用了SAM来增强数据集的多样性；在模型上预训练了一个Class2Image的模型作为T2I模型的初始化，同时在AdaLN中移除了TextEmbedding的输入来减少模型参数，同时引入了T5的crossAttn来增强文本信息。
+
+
+# PIXART-δ:Fast and Controllable Image Generation with Latent Consistency Models
+CVPR2024,01
+
+
+
+

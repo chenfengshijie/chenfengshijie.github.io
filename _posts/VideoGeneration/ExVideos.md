@@ -1,0 +1,20 @@
+# ExVideo: Extending Video Diffusion Models via Parameter-Efficient Post-Tuning
+
+ExVideo是在已有的视频生成模型上进行微调,可以在1.5k的GPU hours,使用40k 视频,生成5x原来的时间的视频.
+
+![WxVideos_2024-08-22_](https://s2.loli.net/2024/08/22/M7gJOcmEawLePCF.png)
+
+主要方法是固定模型其他参数,额外添加一个3D-Conv来学习不同分辨率的视频,同时因为增加了额外的长度和Token,因此PE也使用了可学习的方法进行替换.
+
+其中提到了一些额外的显存优化方法,其实这些在视频生成模型上都是基操了,因为结合视频生成的特点(Token Seq length too long)
+
+- 单精度,甚至是fp8,
+- Gradient Checkpointing,只在更新的时候计算梯度.
+- Flash-Attn.
+-  Shard optimizer states and gradients:就是DeepSpeed分割参数和梯度那一套.
+
+Adaptive-Resolution效果展示:
+
+![WxVideos_2024-08-22_](https://s2.loli.net/2024/08/22/8ln9SWQpHNyACUO.png)
+
+**其实在之前训练任意分辨率的模型时候,发现纯DiT的模型在任意分辨率下其实是很难训练的,在算力和数据方面,相比于固定分辨率,任意分辨率的模型拟合难度很高.(之前~4倍都没有训练出一个效果相当的模型)**
