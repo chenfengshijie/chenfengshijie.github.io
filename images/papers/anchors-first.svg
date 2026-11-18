@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <linearGradient id="afBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+    <linearGradient id="afHead" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#312e81"/>
+    </linearGradient>
+    <linearGradient id="layerGrad" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#dbeafe"/>
+      <stop offset="50%" stop-color="#e0e7ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="1" y="1" width="638" height="398" rx="10" fill="url(#afBg)" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- Header -->
+  <rect x="20" y="16" width="600" height="38" rx="7" fill="url(#afHead)"/>
+  <text x="34" y="40" fill="#ffffff" font-size="13.5" font-weight="700">Anchors First, Reason Later</text>
+  <text x="234" y="40" fill="#c7d2fe" font-size="11.5" font-weight="500">Layer-Wise Position Scaling (LASP) for Long Context</text>
+
+  <!-- Left Panel: Anchor-and-Reason Hierarchy -->
+  <rect x="20" y="68" width="246" height="268" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.3"/>
+  <text x="143" y="90" fill="#0f172a" font-size="11.5" font-weight="700" text-anchor="middle">Anchor-and-Reason Hypothesis</text>
+  <line x1="34" y1="98" x2="252" y2="98" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- Deep Layers (Top) -->
+  <rect x="34" y="108" width="218" height="84" rx="7" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="1.3"/>
+  <text x="143" y="128" fill="#4c1d95" font-size="11" font-weight="700" text-anchor="middle">Deep Layers (Global Reasoning)</text>
+  <text x="143" y="146" fill="#5b21b6" font-size="9.6" text-anchor="middle">Cross-Passage Retrieval &amp; Aggregation</text>
+  <rect x="52" y="156" width="182" height="24" rx="4" fill="#ede9fe"/>
+  <text x="143" y="172" fill="#6d28d9" font-size="9.4" font-weight="600" text-anchor="middle">Relaxed Positional Constraint</text>
+
+  <!-- Upward Flow Arrow -->
+  <path d="M 143 226 L 143 198" stroke="#4f46e5" stroke-width="2" fill="none"/>
+  <polygon points="143,193 138,201 148,201" fill="#4f46e5"/>
+  <text x="188" y="215" fill="#4338ca" font-size="9.2" font-weight="600">Anchor &#8594; Reason</text>
+
+  <!-- Shallow Layers (Bottom) -->
+  <rect x="34" y="232" width="218" height="90" rx="7" fill="#eff6ff" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="143" y="252" fill="#1e3a8a" font-size="11" font-weight="700" text-anchor="middle">Shallow Layers (Local Anchors)</text>
+  <text x="143" y="270" fill="#1d4ed8" font-size="9.6" text-anchor="middle">Token Localization &amp; Semantic Anchoring</text>
+  <rect x="52" y="282" width="182" height="26" rx="4" fill="#dbeafe"/>
+  <text x="143" y="299" fill="#1e40af" font-size="9.4" font-weight="700" text-anchor="middle">High-Resolution RoPE Preserved</text>
+
+  <!-- Middle Panel: LASP Curve vs Uniform Scaling -->
+  <rect x="278" y="68" width="174" height="268" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.3"/>
+  <text x="365" y="90" fill="#0f172a" font-size="11.5" font-weight="700" text-anchor="middle">LASP Schedule</text>
+  <line x1="290" y1="98" x2="440" y2="98" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- Plot Axes -->
+  <line x1="312" y1="286" x2="434" y2="286" stroke="#475569" stroke-width="1.4"/>
+  <line x1="312" y1="286" x2="312" y2="118" stroke="#475569" stroke-width="1.4"/>
+  <text x="373" y="304" fill="#334155" font-size="9.4" font-weight="600" text-anchor="middle">Positional Resolution</text>
+  <text x="297" y="202" fill="#334155" font-size="9.4" font-weight="600" text-anchor="middle" transform="rotate(-90 297 202)">Layer Depth l</text>
+  <text x="306" y="284" fill="#64748b" font-size="8.5" text-anchor="end">1</text>
+  <text x="306" y="128" fill="#64748b" font-size="8.5" text-anchor="end">L</text>
+
+  <!-- Uniform YaRN Baseline (vertical dashed line) -->
+  <line x1="368" y1="282" x2="368" y2="124" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="4,3"/>
+  <text x="368" y="116" fill="#64748b" font-size="8.6" font-weight="600" text-anchor="middle">Uniform YaRN</text>
+
+  <!-- LASP Curve (Strong resolution at bottom l=1 -> Relaxed at top l=L) -->
+  <path d="M 422 280 C 414 235, 362 185, 328 126" stroke="#2563eb" stroke-width="3" fill="none"/>
+  <circle cx="422" cy="280" r="4" fill="#1d4ed8"/>
+  <circle cx="328" cy="126" r="4" fill="#7c3aed"/>
+  <text x="406" y="256" fill="#1d4ed8" font-size="9.2" font-weight="700">LASP</text>
+
+  <text x="365" y="323" fill="#475569" font-size="8.8" text-anchor="middle">Layer-Scaling for Position</text>
+
+  <!-- Right Panel: Verified Benchmark Comparison -->
+  <rect x="464" y="68" width="156" height="268" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.3"/>
+  <text x="542" y="90" fill="#0f172a" font-size="11.5" font-weight="700" text-anchor="middle">Verified Benchmarks</text>
+  <line x1="476" y1="98" x2="608" y2="98" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- HELMET Avg Card -->
+  <rect x="476" y="110" width="132" height="96" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="542" y="128" fill="#1e293b" font-size="10.2" font-weight="700" text-anchor="middle">HELMET (Avg.)</text>
+  <!-- YaRN bar -->
+  <text x="484" y="150" fill="#64748b" font-size="9" font-weight="600">YaRN</text>
+  <rect x="520" y="141" width="54" height="11" rx="2" fill="#cbd5e1"/>
+  <text x="578" y="150" fill="#475569" font-size="8.8" font-weight="600">50.84</text>
+  <!-- LASP-both bar -->
+  <text x="484" y="172" fill="#1d4ed8" font-size="9" font-weight="700">LASP</text>
+  <rect x="520" y="163" width="66" height="11" rx="2" fill="#2563eb"/>
+  <text x="590" y="172" fill="#1e3a8a" font-size="8.8" font-weight="700">51.99</text>
+  <text x="542" y="195" fill="#475569" font-size="8.4" text-anchor="middle">Long-Context Suite</text>
+
+  <!-- LOFT Retrieval Card -->
+  <rect x="476" y="218" width="132" height="104" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="542" y="236" fill="#1e293b" font-size="10.2" font-weight="700" text-anchor="middle">LOFT (6 Retrieval)</text>
+  <!-- YaRN baselines -->
+  <text x="484" y="258" fill="#64748b" font-size="9" font-weight="600">YaRN</text>
+  <rect x="520" y="249" width="52" height="11" rx="2" fill="#cbd5e1"/>
+  <text x="576" y="258" fill="#475569" font-size="8.8" font-weight="600">62-64</text>
+  <!-- LASP-both -->
+  <text x="484" y="280" fill="#4f46e5" font-size="9" font-weight="700">LASP</text>
+  <rect x="520" y="271" width="68" height="11" rx="2" fill="#4f46e5"/>
+  <text x="592" y="280" fill="#312e81" font-size="8.8" font-weight="700">69</text>
+  <text x="542" y="306" fill="#475569" font-size="8.4" text-anchor="middle">Real-World Retrieval</text>
+
+  <!-- Footer -->
+  <rect x="20" y="348" width="600" height="34" rx="6" fill="#e2e8f0"/>
+  <text x="320" y="369" fill="#1e293b" font-size="10.3" font-weight="600" text-anchor="middle">RoPE Masking, Partial Fine-Tuning &amp; Layer Grafting Confirm Shallow Layers Drive Length Extrapolation</text>
+</svg>
